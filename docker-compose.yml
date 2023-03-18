@@ -1,11 +1,12 @@
-version: "3.8"
+version: "3.9"
 
 services:
-  server:
+  app:
+    image: gotodo
     build:
-      context: .
-      dockerfile: Dockerfile
-    tty: true
-    stdin_open: true
+      args:
+        - target=dev
     volumes:
       - .:/app
+    ports:
+      - "18000:80"

@@ -3,11 +3,10 @@
 	"dockerComposeFile":[
     	"../docker-compose.yml"
 	],
-	"service": "server",
+	"service": "app",
 	// リモートコンテナ起動時のワークスペースを設定
     "workspaceFolder": "/app",
-	"settings": {
-	},
+	"settings": {},
 
 	// コンテナ起動時に自動インストールするVSCodeの拡張機能を設定（拡張機能一覧で右クリックCopy Extension Idから取得）
 	"extensions": [
