@@ -29,11 +29,11 @@ func main() {
 
 func run(ctx context.Context, l net.Listener) error {
 	s := &http.Server{
-		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 		}),
 	}
-	eg, ctx:= errgroup.WithContext(ctx)
+	eg, ctx := errgroup.WithContext(ctx)
 	// 別ゴルーチンでHTTPサーバーを起動
 	eg.Go(func() error {
 		if err := s.Serve(l); err != nil &&
@@ -46,7 +46,7 @@ func run(ctx context.Context, l net.Listener) error {
 
 	// チャネルからの通知（終了通知）を待機
 	<-ctx.Done()
-	if err := s.Shutdown(context.Background());err != nil {
+	if err := s.Shutdown(context.Background()); err != nil {
 		log.Printf("failed to shutdhon: %+v", err)
 	}
 	// Goメソッドで起動した別ゴルーチンの終了を待つ
