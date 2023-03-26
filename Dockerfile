@@ -29,5 +29,6 @@ WORKDIR /app
 
 RUN go install github.com/cosmtrek/air@latest && \
     go install golang.org/x/tools/gopls@latest && \
-    go install github.com/ramya-rao-a/go-outline@latest
+    go install github.com/ramya-rao-a/go-outline@latest && \
+    go install github.com/k0kubun/sqldef/cmd/mysqldef@latest
 CMD ["air"]
