@@ -34,10 +34,9 @@ func (r *Repository) ListTasks(
 ) (entity.Tasks, error) {
 	tasks := entity.Tasks{}
 	sql := `SELECT 
-				id, user_id, title,
+				id, title,
 				status, created, modified 
-			FROM task
-			WHERE user_id = ?;`
+			FROM task;`
 	if err := db.SelectContext(ctx, &tasks, sql); err != nil {
 		return nil, err
 	}
