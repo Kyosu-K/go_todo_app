@@ -31,6 +31,9 @@ dry-migrate: ## Try migration
 migrate:  ## Execute migration
 	mysqldef -u ${TODO_DB_USER} -p ${TODO_DB_PASSWORD} -h ${TODO_DB_HOST} -P ${TODO_DB_PORT} ${TODO_DB_NAME} < ./_tools/mysql/schema.sql
 
+generate: ## Generate codes
+	go generate ./...
+
 help: ## Show options
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 			awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' 
