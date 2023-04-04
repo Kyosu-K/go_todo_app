@@ -3,6 +3,7 @@ package store
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"fmt"
 	"time"
 
@@ -10,6 +11,17 @@ import (
 	"github.com/Kyosu-K/go_todo_app/config"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
+)
+
+const (
+	// ErrCodeMySQLDuplicateEntry はMySQL系のDUPLICATEエラーコード
+	// https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html
+	// Error number: 1062; Symbol: ER_DUP_ENTRY; SQLSTATE: 23000
+	ErrCodeMySQLDuplicateEntry = 1062
+)
+
+var (
+	ErrAlreadyEntry = errors.New("duplicate entry")
 )
 
 func New(ctx context.Context, cfg *config.Config) (*sqlx.DB, func(), error) {
