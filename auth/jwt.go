@@ -65,7 +65,7 @@ func parse(rawKey []byte) (jwk.Key, error) {
 func (j *JWTer) GenerateToken(ctx context.Context, u entity.User) ([]byte, error) {
 	tok, err := jwt.NewBuilder().
 		JwtID(uuid.New().String()).
-		Issuer(`github.com/budougumi0617/go_todo_app`).
+		Issuer(`github.com/Kyosu-K/go_todo_app`).
 		Subject("access_token").
 		IssuedAt(j.Clocker.Now()).
 		// redisのexpireはこれを使う。

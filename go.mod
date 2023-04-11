@@ -33,7 +33,7 @@ require (
 	github.com/lestrrat-go/jwx v1.2.25
 	github.com/lestrrat-go/jwx/v2 v2.0.9 // indirect
 	github.com/lestrrat-go/option v1.0.1 // indirect
-	golang.org/x/crypto v0.7.0 // indirect
-	golang.org/x/sys v0.6.0 // indirect
-	golang.org/x/text v0.8.0 // indirect
+	golang.org/x/crypto v0.8.0 // indirect
+	golang.org/x/sys v0.7.0 // indirect
+	golang.org/x/text v0.9.0 // indirect
 )
